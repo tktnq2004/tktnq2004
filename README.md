@@ -5,4 +5,3 @@
 <a name="page"><img src="https://tktnq2004-profile.tktnq2004.workers.dev/page.svg" width="100%" align="top" alt="Trần Khương Trung Nhật Quang, Full-stack Developer · Ho Chi Minh City. Open the tabs above for the tech stack and contact details."></a>
 </p>
 
-<p align="center"><a href="mailto:tktnq2004@gmail.com"><img height="44" src="profile/assets/button-email.svg" alt="Email me"></a> <a href="https://github.com/tktnq2004/tktnq2004/blob/main/assets/Tran-Khuong-Trung-Nhat-Quang-CV.pdf"><img height="44" src="profile/assets/button-cv.svg" alt="Download CV"></a> <a href="https://tktnq2004.github.io/tktnq2004/"><img height="44" src="profile/assets/button-portfolio.svg" alt="Portfolio"></a></p>

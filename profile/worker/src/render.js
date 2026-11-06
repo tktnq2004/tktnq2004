@@ -265,7 +265,6 @@ function aboutPage() {
     [0, ['kw', 'const '], ['fn', 'quang'], ['ink2', ' = {']],
     [2, ['ink', 'role'], ['ink2', ': '], ['str', "'full-stack developer'"], ['ink2', ',']],
     [2, ['ink', 'school'], ['ink2', ': '], ['str', `"HUTECH '26"`], ['ink2', ',']],
-    [2, ['ink', 'gpa'], ['ink2', ': '], ['num', '3.6'], ['ink2', ',']],
     [2, ['ink', 'stack'], ['ink2', ': ['], ['str', "'Next.js'"], ['ink2', ', '], ['str', "'Spring Boot'"], ['ink2', '],']],
     [2, ['ink', 'openTo'], ['ink2', ': '], ['str', "'intern / fresher'"], ['ink2', ',']],
     [0, ['ink2', '};']],
