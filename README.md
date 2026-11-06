@@ -1,37 +1,30 @@
-# Portfolio · Trần Khương Trung Nhật Quang
+## Hi, I'm Trần Khương Trung Nhật Quang 👋
 
-Static site, no build step. The structure follows a personal index with a small-shop metaphor:
+Full-stack developer and a fresh Software Engineering graduate from **HUTECH** (2022–2026, GPA 3.6/4).
+I build web apps end to end, from the database schema to the last button.
 
-| Page | What it is |
-|---|---|
-| `index.html` | The CV: intro, blog (stack), partners (internship), shop (projects), about the maker (education), certifications, activity (GitHub), contact |
-| `shop.html` + `shop-tram-ota.html` | Projects. Trạm OTA is the one on sale; two slots say "Coming soon" |
-| `blog.html` | The tech stack, one line per area (backend, frontend, databases, languages, integrations, tools) |
-| `certifications.html` | Certifications from `data/certifications.js` |
-| `contact.html` | Contact details and a form that opens the visitor's email app (nothing is sent from the site) |
+🔎 Looking for an **intern / fresher full-stack role** in Ho Chi Minh City.
 
-All pages share `styles.css` and `script.js`.
+- 🌐 Portfolio: https://tktnq2004.github.io/tktnq2004/
+- 📫 Email: tktnq2004@gmail.com
 
-## Preview locally
+### What I've built
 
-```bash
-python -m http.server 5500
-# http://localhost:5500
-```
+| Project | Stack | Highlights |
+|---|---|---|
+| **Trạm OTA** (team of 2) | Next.js · Spring Boot · MySQL · Redis · Docker | Hotel booking platform for Vietnam: map search, 360° room tours, card and bank-QR payments (SePay), admin and partner back offices on one login. I built most of the frontend and several backend features. [Backend repo](https://github.com/tktnq2004/Mini-OTA-Upgrade) |
+| **Hotel Booking Management** | MongoDB · Express · React · Node.js | 27 REST endpoints, JWT access/refresh with token rotation, Jest + Supertest tests |
+| **Mini OTA v1** | ASP.NET MVC · SQL Server | 16-table database, 100+ hotels, MapLibre map, Pannellum 360° tours, VNPay payment |
 
-## Things you can add later
+### Experience
 
-| What | How |
-|---|---|
-| Portrait | Save it as `assets/avatar.jpg` (about 4:5). It replaces the dotted frame on the home page. |
-| Certifications | Add entries to `data/certifications.js`. The home section appears and the page lists them. |
-| Trạm OTA screenshots | Drop 1440×900 WebP files into `assets/shots/`: `hotels.webp`, `map.webp`, `checkout.webp`, `admin.webp`, `editor.webp`. Missing files hide their slot on the Trạm OTA page. |
-| LinkedIn and repo links | Search the HTML for `TODO`. |
+**TIHA · Bong Mai IT** — Full-stack intern (Apr – Jun 2026)
+Built a management system for a lottery agency: 8 management modules, 6 workflows, 7 reports. React + Express + SQL Server, deployed on Vercel and Render.
 
-The pages were generated from one script, so the sidebar is repeated in every file. If you change the sidebar by hand, change it in all 6 pages.
+### Tech stack
 
-To add a project to the shop later, copy `shop-tram-ota.html`, then replace one of the two "Coming soon" cards in `shop.html` and in the shop fan on `index.html`.
-
-## Deploy
-
-Push this folder to a GitHub repo and turn on GitHub Pages (branch `main`, root), or import it in Vercel as a static site. `.impeccable/` holds design working files and is in `.gitignore`.
+**Backend:** Spring Boot, Spring Security, Express, Node.js, ASP.NET MVC
+**Frontend:** Next.js, React, Tailwind CSS
+**Databases:** MySQL, SQL Server, MongoDB, Redis
+**Languages:** TypeScript, JavaScript, Java, C#, SQL
+**Tools:** Git, Docker, Vitest, Jest, Vercel, Render, Postman
