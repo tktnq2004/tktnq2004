@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/wrangler@4/config-schema.json",
+  "name": "tktnq2004-profile",
+  "main": "src/index.js",
+  "compatibility_date": "2025-09-01",
+  "workers_dev": true,
+  "durable_objects": {
+    "bindings": [{ "name": "STATE", "class_name": "ProfileState" }]
+  },
+  // SQLite-backed Durable Objects are included in the free plan.
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["ProfileState"] }],
+  "vars": { "PROFILE_URL": "https://github.com/tktnq2004" }
+}

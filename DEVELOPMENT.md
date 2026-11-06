@@ -38,10 +38,26 @@ Push this folder to a GitHub repo and turn on GitHub Pages (branch `main`, root)
 
 ## GitHub profile README
 
-`README.md` is the GitHub profile: one animated SVG of a browser window (`profile/assets/browser.svg`) that plays a demo on a loop (Home, open Shop in a new tab, close it, open Contact, close it), with three real link buttons under it. GitHub strips scripts and styles from READMEs, so nothing inside an image can react to clicks; the animation runs on CSS keyframes inside the SVG. It plays even when the viewer has reduced motion turned on, because with that setting (common on Windows) the image showed only a still Home page.
+`README.md` is the GitHub profile. It shows a browser window with working tabs and a working menu (about, tech stack, contact). Three link buttons sit under it.
 
-Do not edit `README.md` or `profile/assets/` by hand. Change the content or the timeline at the top of `profile/build.mjs`, then run:
+GitHub strips scripts from READMEs, so a small Cloudflare Worker does the work (`profile/worker/`):
+
+- **Tiles.** The browser is cut into image tiles. Each tab and each menu item is its own tile, wrapped in a link to the Worker (`/open?tab=`, `/focus?slot=`, `/close?slot=`).
+- **Clicks.** The Worker records the click in a Durable Object, then redirects back to the profile.
+- **Images.** The profile reloads, and GitHub fetches every tile from the Worker again. The Worker sends no-cache headers and draws the tiles for the current tabs.
+- **State is shared.** All visitors see the same tabs. After 2 minutes without clicks it falls back to a single About tab.
+
+Content and drawing live in `profile/worker/src/render.js`. Do not edit `README.md` or `profile/assets/` by hand.
 
 ```bash
-node profile/build.mjs
+# test locally: open http://localhost:8787/preview
+node profile/worker/dev.mjs
+
+# deploy the Worker (needs a free Cloudflare account; the first run opens a login page)
+cd profile/worker && npx wrangler@4 deploy
+
+# regenerate README.md with the Worker address (saved for later runs)
+node profile/build.mjs https://tktnq2004-profile.<subdomain>.workers.dev
 ```
+
+After changing `render.js`, deploy the Worker again. Rerun `build.mjs` only when the tile layout or the buttons change.
