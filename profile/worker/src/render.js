@@ -342,9 +342,7 @@ function contactPage() {
   }).join('');
   return (
     title('Contact', 'Hiring an intern or fresher developer? Email reaches me fastest.') +
-    cards +
-    step(5, text(pad, 254, '↓ the buttons under this window are the real links', { size: 12, cls: 'f-ink3', mono: true }))
-  );
+    cards  );
 }
 
 function page(active) {

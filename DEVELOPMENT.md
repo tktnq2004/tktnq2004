@@ -38,7 +38,7 @@ Push this folder to a GitHub repo and turn on GitHub Pages (branch `main`, root)
 
 ## GitHub profile README
 
-`README.md` is the GitHub profile. It shows a browser window with working tabs and a working menu (about, tech stack, contact). Three link buttons sit under it.
+`README.md` is the GitHub profile. It shows a browser window with working tabs and a working menu (about, tech stack, contact).
 
 GitHub strips scripts from READMEs, so a small Cloudflare Worker does the work (`profile/worker/`):
 
@@ -47,7 +47,7 @@ GitHub strips scripts from READMEs, so a small Cloudflare Worker does the work (
 - **Images.** The profile reloads, and GitHub fetches every tile from the Worker again. The Worker sends no-cache headers and draws the tiles for the current tabs.
 - **State is shared.** All visitors see the same tabs. After 2 minutes without clicks it falls back to a single About tab.
 
-Content and drawing live in `profile/worker/src/render.js`. Do not edit `README.md` or `profile/assets/` by hand.
+Content and drawing live in `profile/worker/src/render.js`. Do not edit `README.md` by hand.
 
 ```bash
 # test locally: open http://localhost:8787/preview
@@ -60,4 +60,4 @@ cd profile/worker && npx wrangler@4 deploy
 node profile/build.mjs https://tktnq2004-profile.<subdomain>.workers.dev
 ```
 
-After changing `render.js`, deploy the Worker again. Rerun `build.mjs` only when the tile layout or the buttons change.
+After changing `render.js`, deploy the Worker again. Rerun `build.mjs` only when the tile layout changes.

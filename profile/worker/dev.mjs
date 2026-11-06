@@ -3,15 +3,11 @@
 //   node profile/worker/dev.mjs     then open http://localhost:8787/preview
 
 import { createServer } from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { handle } from './src/app.js';
 import { apply, current, browserMarkup } from './src/render.js';
 
 const PORT = Number(process.env.PORT || 8787);
 const BASE = `http://localhost:${PORT}`;
-const PROFILE_DIR = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 let state;
 const store = {
@@ -30,22 +26,13 @@ body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,'
 </style></head><body><article class="markdown-body">
 <p>
 ${browserMarkup(BASE)}
-</p>
-<p align="center">${['email', 'cv', 'portfolio'].map((id) => `<a href="#"><img height="44" src="/profile/assets/button-${id}.svg"></a>`).join(' ')}</p>
-</article></body></html>`;
+</p></article></body></html>`;
 
 createServer(async (req, res) => {
   const url = new URL(req.url, BASE);
   if (url.pathname === '/preview') {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
     return res.end(preview());
-  }
-  if (url.pathname.startsWith('/profile/assets/')) {
-    const file = join(PROFILE_DIR, 'assets', url.pathname.slice('/profile/assets/'.length));
-    if (existsSync(file)) {
-      res.writeHead(200, { 'Content-Type': 'image/svg+xml' });
-      return res.end(readFileSync(file));
-    }
   }
   if (url.pathname === '/state') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
