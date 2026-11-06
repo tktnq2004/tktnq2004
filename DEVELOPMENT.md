@@ -35,3 +35,13 @@ To add a project to the shop later, copy `shop-tram-ota.html`, then replace one 
 ## Deploy
 
 Push this folder to a GitHub repo and turn on GitHub Pages (branch `main`, root), or import it in Vercel as a static site. `.impeccable/` holds design working files and is in `.gitignore`.
+
+## GitHub profile README
+
+`README.md` and `profile/` are the GitHub profile: a browser window drawn as SVG tiles, where each tile is a link (menu, address bar, cards). GitHub strips scripts and styles from READMEs, so this is the only way to make it clickable.
+
+Do not edit `README.md`, `profile/*.md` or `profile/assets/` by hand. Change the content in `profile/build.mjs`, then run:
+
+```bash
+node profile/build.mjs
+```
