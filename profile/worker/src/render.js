@@ -114,19 +114,22 @@ export function text(x, y, str, { size = 15, cls = 'f-ink', bold = false, mono =
   return `<text ${a.join(' ')}>${esc(str)}</text>`;
 }
 
-// The personal mark has its own warm colours, the same in light and dark.
-const MARK = ['#ff8a4c', '#e5487a'];
-const gradient =
-  `<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="g1"/><stop offset="1" class="g2"/></linearGradient>` +
-  `<linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${MARK[0]}"/><stop offset="1" stop-color="${MARK[1]}"/></linearGradient>`;
+const gradient = `<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="g1"/><stop offset="1" class="g2"/></linearGradient>`;
 
-// A W drawn as one rounded stroke on a rounded square: looks the same in every
-// font, at favicon size or header size.
+// The Wengg mark: a cat peeking over the edge of a screen, white on a sea-blue
+// tile. Same colours in light and dark. Masters live in profile/logo/.
+export const SEA = '#3a9fdc';
+// The small-size cut (16-unit grid): head, ears, eye holes, desk with two paws.
+const CAT_SMALL =
+  'M4 11V7.5A4 4 0 0 1 12 7.5V11ZM4 8V2.6Q4.2 1.5 5.1 2.2L7.6 5ZM12 8L8.4 5L10.9 2.2Q11.8 1.5 12 2.6Z' +
+  'M6 7V9H7V7ZM9 7V9H10V7Z' +
+  'M0 12Q0 11 0.8 11A1.2 1.2 0 0 1 3.2 11H12.8A1.2 1.2 0 0 1 15.2 11Q16 11 16 12V14Q16 15 15 15H1Q0 15 0 14Z';
 export function mark(x, y, s) {
-  const p = (fx, fy) => `${+(x + s * fx).toFixed(2)} ${+(y + s * fy).toFixed(2)}`;
+  const k = s / 256;
+  const t = `translate(${+(x + 48.64 * k).toFixed(3)} ${+(y + 44.04 * k).toFixed(3)}) scale(${+(9.92 * k).toFixed(4)})`;
   return (
-    `<rect x="${x}" y="${y}" width="${s}" height="${s}" rx="${+(s * 0.28).toFixed(2)}" fill="url(#m)"/>` +
-    `<path d="M${p(0.2, 0.32)}L${p(0.36, 0.7)}L${p(0.5, 0.42)}L${p(0.64, 0.7)}L${p(0.8, 0.32)}" fill="none" stroke="#fff" stroke-width="${+(s * 0.11).toFixed(2)}" stroke-linecap="round" stroke-linejoin="round"/>`
+    `<rect x="${x}" y="${y}" width="${s}" height="${s}" rx="${+(s * 0.225).toFixed(2)}" fill="${SEA}"/>` +
+    `<path transform="${t}" fill="#fff" d="${CAT_SMALL}"/>`
   );
 }
 
@@ -233,7 +236,7 @@ function head(active) {
     const lw = tw(label, 14.5);
     return (
       text(x, 36, label, { size: 14.5, cls: on ? 'f-ink' : 'f-ink2', anchor: 'middle' }) +
-      (on ? `<rect x="${x - lw / 2}" y="45" width="${lw}" height="2.5" rx="1.25" fill="url(#m)"/>` : '')
+      (on ? `<rect x="${x - lw / 2}" y="45" width="${lw}" height="2.5" rx="1.25" fill="${SEA}"/>` : '')
     );
   }).join('');
   return (
