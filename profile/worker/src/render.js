@@ -30,15 +30,14 @@ const ABOUT = {
 
 // [group, [[name, brand color or null for the text color]]]
 const STACK = [
-  ['frontend', [['Next.js', null], ['React', '#61dafb'], ['TypeScript', '#3178c6'], ['Tailwind CSS', '#38bdf8']]],
+  ['frontend', [['Next.js', null], ['React', '#61dafb'], ['JavaScript', '#F7DF1E'], ['TypeScript', '#3178c6'],]],
   ['backend', [['Spring Boot', '#6db33f'], ['Node.js', '#5fa04e']]],
   ['database', [['MySQL', '#4479a1'], ['SQL Server', '#cc2927'], ['MongoDB', '#47a248'], ['Redis', '#ff4438']]],
-  ['tools', [['Docker', '#2496ed'], ['Git', '#f05032']]],
+  ['tools', [['Docker', '#2496ed'], ['Git', '#f05032'], ['Claude code', '#D97757']]],
 ];
 
 const CONTACT = [
   { tag: 'email', value: EMAIL, sub: 'the fastest way to reach me' },
-  { tag: 'cv', value: 'Download CV', sub: 'PDF' },
   { tag: 'portfolio', value: 'Full portfolio', sub: `${USER}.github.io/${USER}` },
 ];
 
@@ -115,7 +114,21 @@ export function text(x, y, str, { size = 15, cls = 'f-ink', bold = false, mono =
   return `<text ${a.join(' ')}>${esc(str)}</text>`;
 }
 
-const gradient = `<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="g1"/><stop offset="1" class="g2"/></linearGradient>`;
+// The personal mark has its own warm colours, the same in light and dark.
+const MARK = ['#ff8a4c', '#e5487a'];
+const gradient =
+  `<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="g1"/><stop offset="1" class="g2"/></linearGradient>` +
+  `<linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${MARK[0]}"/><stop offset="1" stop-color="${MARK[1]}"/></linearGradient>`;
+
+// A W drawn as one rounded stroke on a rounded square: looks the same in every
+// font, at favicon size or header size.
+export function mark(x, y, s) {
+  const p = (fx, fy) => `${+(x + s * fx).toFixed(2)} ${+(y + s * fy).toFixed(2)}`;
+  return (
+    `<rect x="${x}" y="${y}" width="${s}" height="${s}" rx="${+(s * 0.28).toFixed(2)}" fill="url(#m)"/>` +
+    `<path d="M${p(0.2, 0.32)}L${p(0.36, 0.7)}L${p(0.5, 0.42)}L${p(0.64, 0.7)}L${p(0.8, 0.32)}" fill="none" stroke="#fff" stroke-width="${+(s * 0.11).toFixed(2)}" stroke-linecap="round" stroke-linejoin="round"/>`
+  );
+}
 
 // x0 shifts the viewBox, so a tile shows its own slice of a wider drawing.
 export function svgDoc(w, h, body, x0 = 0) {
@@ -148,7 +161,7 @@ export const TOP_COLS = [
 ];
 const MENU_X = { about: 690, stack: 810, contact: 940 };
 export const HEAD_COLS = [
-  { id: 'brand', x: 0, w: 640, action: 'open?tab=about', alt: 'Nhật Quang' },
+  { id: 'brand', x: 0, w: 640, action: 'open?tab=about', alt: 'WENGG' },
   { id: 'about', x: 640, w: 100, action: 'open?tab=about', alt: 'about' },
   { id: 'stack', x: 740, w: 140, action: 'open?tab=stack', alt: 'tech stack' },
   { id: 'contact', x: 880, w: 120, action: 'open?tab=contact', alt: 'contact' },
@@ -156,8 +169,7 @@ export const HEAD_COLS = [
 
 // ---------------------------------------------------------------- tab strip + toolbar
 
-const favicon = (x, y) =>
-  `<rect x="${x}" y="${y}" width="16" height="16" rx="4.5" fill="url(#g)"/>` + text(x + 8, y + 12, 'Q', { size: 10.5, cls: 'f-white', bold: true, anchor: 'middle' });
+const favicon = (x, y) => mark(x, y, 16);
 
 function tab(i, id, active, pop) {
   const x0 = SLOT_X + SLOT_W * i + 4;
@@ -221,13 +233,12 @@ function head(active) {
     const lw = tw(label, 14.5);
     return (
       text(x, 36, label, { size: 14.5, cls: on ? 'f-ink' : 'f-ink2', anchor: 'middle' }) +
-      (on ? `<rect x="${x - lw / 2}" y="45" width="${lw}" height="2.5" rx="1.25" fill="url(#g)"/>` : '')
+      (on ? `<rect x="${x - lw / 2}" y="45" width="${lw}" height="2.5" rx="1.25" fill="url(#m)"/>` : '')
     );
   }).join('');
   return (
     `<rect x=".75" y="0" width="${W - 1.5}" height="${HEAD_H}" class="f-win"/>` +
-    `<circle cx="56" cy="32" r="15" fill="url(#g)"/>` +
-    text(56, 36.5, 'NQ', { size: 11.5, cls: 'f-white', bold: true, anchor: 'middle' }) +
+    mark(40, 16, 32) +
     text(82, 29, 'Nhật Quang', { size: 15.5, bold: true }) +
     text(82, 46, `@${USER}`, { size: 11.5, cls: 'f-ink3', mono: true }) +
     menu +
@@ -262,9 +273,9 @@ function aboutPage() {
   const cx = 604;
   const cw = W - 48 - cx;
   const lines = [
-    [0, ['kw', 'const '], ['fn', 'quang'], ['ink2', ' = {']],
+    [0, ['kw', 'const '], ['fn', 'tktnq2004'], ['ink2', ' = {']],
     [2, ['ink', 'role'], ['ink2', ': '], ['str', "'full-stack developer'"], ['ink2', ',']],
-    [2, ['ink', 'school'], ['ink2', ': '], ['str', `"HUTECH '26"`], ['ink2', ',']],
+    [2, ['ink', 'address'], ['ink2', ': '], ['str', `"Long Binh, 9 district"`], ['ink2', ',']],
     [2, ['ink', 'stack'], ['ink2', ': ['], ['str', "'Next.js'"], ['ink2', ', '], ['str', "'Spring Boot'"], ['ink2', '],']],
     [2, ['ink', 'openTo'], ['ink2', ': '], ['str', "'intern / fresher'"], ['ink2', ',']],
     [0, ['ink2', '};']],
@@ -284,15 +295,15 @@ function aboutPage() {
     step(
       3,
       `<rect x="${x + 0.5}" y="${statusY + 0.5}" width="${sw}" height="28" rx="14" class="f-chip s-line" stroke-width="1"/>` +
-        `<circle cx="${x + 18}" cy="${statusY + 14.5}" r="4" class="f-ok"/>` +
-        text(x + 32, statusY + 19, ABOUT.status, { size: 13, cls: 'f-ink2' }),
+      `<circle cx="${x + 18}" cy="${statusY + 14.5}" r="4" class="f-ok"/>` +
+      text(x + 32, statusY + 19, ABOUT.status, { size: 13, cls: 'f-ink2' }),
     ) +
     step(
       3,
       `<rect x="${cx + 0.5}" y="40.5" width="${cw}" height="212" rx="12" class="f-code s-line" stroke-width="1"/>` +
-        text(cx + 22, 66, 'whoami.ts', { size: 11.5, cls: 'f-ink3', mono: true }) +
-        `<path d="M${cx + 1} 80.5H${cx + cw}" class="s-line" stroke-width="1"/>` +
-        code,
+      text(cx + 22, 66, 'whoami.ts', { size: 11.5, cls: 'f-ink3', mono: true }) +
+      `<path d="M${cx + 1} 80.5H${cx + cw}" class="s-line" stroke-width="1"/>` +
+      code,
     )
   );
 }
@@ -324,9 +335,9 @@ function contactPage() {
     return step(
       i + 2,
       `<rect x="${x + 0.5}" y="${y + 0.5}" width="${cw - 1}" height="100" rx="12" class="f-chip s-line" stroke-width="1"/>` +
-        text(x + 20, y + 30, c.tag, { size: 12, cls: 'f-ink3', mono: true }) +
-        text(x + 20, y + 60, c.value, { size: 16.5, bold: true }) +
-        text(x + 20, y + 82, c.sub, { size: 12.5, cls: 'f-ink2' }),
+      text(x + 20, y + 30, c.tag, { size: 12, cls: 'f-ink3', mono: true }) +
+      text(x + 20, y + 60, c.value, { size: 16.5, bold: true }) +
+      text(x + 20, y + 82, c.sub, { size: 12.5, cls: 'f-ink2' }),
     );
   }).join('');
   return (
