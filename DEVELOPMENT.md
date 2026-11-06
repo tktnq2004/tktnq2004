@@ -38,7 +38,7 @@ Push this folder to a GitHub repo and turn on GitHub Pages (branch `main`, root)
 
 ## GitHub profile README
 
-`README.md` is the GitHub profile: one animated SVG of a browser window (`profile/assets/browser.svg`) that plays a demo on a loop (Home, open Shop in a new tab, close it, open Contact, close it), with three real link buttons under it. GitHub strips scripts and styles from READMEs, so nothing inside an image can react to clicks; the animation runs on CSS keyframes inside the SVG. Visitors with reduced motion turned on (on Windows: Settings > Accessibility > Visual effects > Animation effects off) see Home standing still.
+`README.md` is the GitHub profile: one animated SVG of a browser window (`profile/assets/browser.svg`) that plays a demo on a loop (Home, open Shop in a new tab, close it, open Contact, close it), with three real link buttons under it. GitHub strips scripts and styles from READMEs, so nothing inside an image can react to clicks; the animation runs on CSS keyframes inside the SVG. It plays even when the viewer has reduced motion turned on, because with that setting (common on Windows) the image showed only a still Home page.
 
 Do not edit `README.md` or `profile/assets/` by hand. Change the content or the timeline at the top of `profile/build.mjs`, then run:
 

@@ -6,7 +6,7 @@
 //
 // GitHub strips scripts and styles from READMEs, so nothing inside an image can
 // react to clicks. The SVG animates itself with CSS keyframes instead; viewers
-// who ask for reduced motion see the Home page standing still.
+// it plays even when the viewer has reduced motion turned on.
 
 import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -433,7 +433,9 @@ mkdirSync(ASSETS, { recursive: true });
 for (const old of ['shop', 'contact', 'blog', 'partners']) rmSync(join(HERE, `${old}.md`), { force: true });
 
 const scene = chrome() + homePage() + shopPage() + contactPage() + cursor();
-const motion = `@media (prefers-reduced-motion:no-preference){${rules}${keyframes}}`;
+// Plays regardless of the reduced-motion setting: the demo is the whole point
+// of the image, and with it off (common on Windows) visitors saw a still page.
+const motion = `${rules}${keyframes}`;
 writeFileSync(join(ASSETS, 'browser.svg'), svgDoc(W, H, scene, motion));
 for (const b of BUTTONS) writeFileSync(join(ASSETS, `button-${b.id}.svg`), button(b));
 
