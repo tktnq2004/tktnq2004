@@ -395,7 +395,7 @@ export const renderPage = (state) => svgDoc(W, PAGE_H, page(state.active));
 
 // The README markup for the browser. `base` is the Worker's address.
 export function browserMarkup(base) {
-  const pct = (w) => `${(w / W) * 100}%`;
+  const pct = (w) => `${+((w / W) * 100).toFixed(2)}%`;
   const img = (src, w, alt) => `<img src="${base}/${src}" width="${pct(w)}" align="top" alt="${esc(alt)}">`;
   // <a name> keeps GitHub from wrapping a plain image in a link to itself.
   const cell = (row, c) =>
