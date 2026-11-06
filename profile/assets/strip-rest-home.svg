@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="714" height="46" viewBox="0 0 714 46"><style>text{font-family:'Inter','Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}.mono{font-family:'JetBrains Mono','Cascadia Code',ui-monospace,Consolas,Menlo,monospace}.f-strip{fill:#e3e8ee}.f-bar{fill:#f6f8fa}.f-field{fill:#e8ecf0}.f-win{fill:#ffffff}.f-chip{fill:#f6f8fa}.f-ink{fill:#1f2328}.f-ink2{fill:#59636e}.f-ink3{fill:#6e7781}.f-acc{fill:#4f46e5}.f-ok{fill:#1a7f37}.f-white{fill:#ffffff}.s-frame{stroke:#c3ccd5}.s-line{stroke:#d8dee4}.s-acc{stroke:#4f46e5}.s-ink2{stroke:#59636e}.s-ink3{stroke:#6e7781}.g1{stop-color:#4f46e5}.g2{stop-color:#0891b2}
+@media (prefers-color-scheme:dark){.f-strip{fill:#010409}.f-bar{fill:#1c2128}.f-field{fill:#0d1117}.f-win{fill:#151b23}.f-chip{fill:#212830}.f-ink{fill:#f0f6fc}.f-ink2{fill:#9198a1}.f-ink3{fill:#848d97}.f-acc{fill:#a5b4fc}.f-ok{fill:#3fb950}.f-white{fill:#ffffff}.s-frame{stroke:#3d444d}.s-line{stroke:#30363d}.s-acc{stroke:#a5b4fc}.s-ink2{stroke:#9198a1}.s-ink3{stroke:#848d97}.g1{stop-color:#6366f1}.g2{stop-color:#06b6d4}}
+.prog{opacity:0}
+@media (prefers-reduced-motion:no-preference){
+.in{animation:in .6s cubic-bezier(.2,.7,.2,1) both}
+.newtab{animation:newtab .45s cubic-bezier(.2,.8,.2,1) both}
+.type{transform-box:fill-box;transform-origin:left center;animation:type .8s steps(24,end) .35s both}
+.prog{transform-box:fill-box;transform-origin:left center;animation:prog 1.3s ease-out .3s both}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.2s ease-out infinite}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 18s linear infinite}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes newtab{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes type{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes prog{0%{transform:scaleX(0);opacity:1}75%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
+@keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(3);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}}</style><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="g1"/><stop offset="1" class="g2"/></linearGradient></defs><path d="M-5 0.75H701.25A12 12 0 0 1 713.25 12.75V51H-5Z" class="f-strip s-frame" stroke-width="1.5"/><path d="M18 18v12M12 24h12" class="s-ink3" stroke-width="1.6" stroke-linecap="round"/></svg>

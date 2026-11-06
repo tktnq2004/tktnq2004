@@ -38,7 +38,7 @@ Push this folder to a GitHub repo and turn on GitHub Pages (branch `main`, root)
 
 ## GitHub profile README
 
-`README.md` and `profile/` are the GitHub profile: a browser window drawn as SVG tiles, where each tile is a link (menu, address bar, cards). GitHub strips scripts and styles from READMEs, so this is the only way to make it clickable.
+`README.md` and `profile/` are the GitHub profile: a small browser window drawn as SVG tiles, where each tile is a link. Home is `README.md`; the site menu opens `profile/shop.md` and `profile/contact.md`, which show a new tab next to Home (its × goes back). Content stays short on purpose: the full write-ups live on the portfolio. GitHub strips scripts and styles from READMEs, so this is the only way to make it clickable.
 
 Do not edit `README.md`, `profile/*.md` or `profile/assets/` by hand. Change the content in `profile/build.mjs`, then run:
 
