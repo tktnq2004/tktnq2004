@@ -82,11 +82,11 @@
         <p class="lead">A hotel booking platform for Vietnam with 360° room tours, map search and booking without an account. Built by a team of two; I wrote most of the Next.js frontend and several backend modules in Spring Boot.</p>
         <div class="buy-actions">
           <a class="btn btn-ink" href="contact.html">Ask me about it <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-line" href="https://github.com/tktnq2004/Mini-OTA-Upgrade" rel="noopener">Backend repo <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
-          <!-- TODO: add the frontend repo (wen-go) once it is public -->
+          <a class="btn btn-line" href="https://github.com/tktnq2004/Mini-OTA-Upgrade" rel="noopener">Frontend repo <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
+          <!-- The backend repo (kyss18/Mini-OTA) is private; link it here if it becomes public. -->
         </div>
       </header>
-      <dl class="case-facts"><div><dt>My role</dt><dd>Frontend (60 of 72 commits), backend contributor (27 of 101)</dd></div><div><dt>Team</dt><dd>2 developers</dd></div><div><dt>Timeline</dt><dd>Jun 2026 – now</dd></div><div><dt>Stack</dt><dd>Next.js 16, React 19, TypeScript, Spring Boot 4, MySQL, Redis, Docker</dd></div></dl>
+      <dl class="case-facts"><div><dt>My role</dt><dd>Frontend (66 of 78 commits), backend contributor (27 of 117)</dd></div><div><dt>Team</dt><dd>2 developers</dd></div><div><dt>Timeline</dt><dd>Jun 2026 – now</dd></div><div><dt>Stack</dt><dd>Next.js 16, React 19, TypeScript, Spring Boot 4, MySQL, Redis, Docker</dd></div></dl>
       <div class="sections">
       <section class="sec" id="s-overview" aria-labelledby="s-overview-h">
         <div class="sec-head"><h2 id="s-overview-h">overview</h2></div>
@@ -102,9 +102,10 @@
             <li><strong>Search</strong> by province and ward, dates, guests, hotel name, or hotels near you.</li>
             <li><strong>Map search</strong> with MapLibre GL and MapTiler.</li>
             <li><strong>Hotel and room pages</strong> with photos, room types, amenities and policies.</li>
-            <li><strong>Checkout</strong>, then card (Stripe) or bank-transfer QR (SePay).</li>
+            <li><strong>360° tours</strong> of two demo hotels, from the lobby through every floor into each room.</li>
+            <li><strong>Checkout</strong>, then card (Stripe, with saved cards) or bank-transfer QR (SePay).</li>
             <li><strong>Account</strong> pages with booking history, and a wishlist.</li>
-            <li><strong>Back offices</strong> for admins and hotel partners, including the 360° tour editor.</li>
+            <li><strong>Back offices</strong> for admins and hotel partners: hotels, room types, rooms, panoramas, discounts and roles, plus the 360° tour editor.</li>
           </ul>
           <!-- Screenshot slots: drop 1440x900 files with these names into assets/shots/; missing ones hide themselves. -->
           <div class="shots">
@@ -136,17 +137,19 @@
         <div class="sec-head"><h2 id="s-my-part-h">my part</h2></div>
         <div class="case-content">
           <div class="split">
-            <div><h3>Frontend</h3><p class="who">most of it · 60 of 72 commits</p><ul>
+            <div><h3>Frontend</h3><p class="who">most of it · 66 of 78 commits</p><ul>
               <li>The booking flow from search to payment, in Vietnamese and English, light and dark.</li>
               <li>Map search, hotel and room pages, account and wishlist.</li>
-              <li>The 360° tour editor and the admin and partner back offices.</li>
+              <li>The 360° tour viewer and editor, and the admin and partner back offices.</li>
+              <li>Discount management, and room types with their own amenities, capacity, rules and views.</li>
+              <li>The guest email check by one-time code before booking.</li>
               <li>The proxy layer and cookie-based sessions.</li></ul></div>
-            <div><h3>Backend</h3><p class="who">with a teammate · 27 of 101 commits</p><ul>
+            <div><h3>Backend</h3><p class="who">with a teammate · 27 of 117 commits</p><ul>
               <li>SePay bank-transfer payments.</li>
               <li>The partner module and admin vs owner/staff permissions.</li>
               <li>Room types owned by each hotel.</li>
               <li>Panorama tours, and uploads to Cloudflare R2.</li>
-              <li>Login by one-time code and a 400-hotel seed.</li></ul></div>
+              <li>Login by one-time code, a 400-hotel seed and two demo hotels with full tours.</li></ul></div>
           </div>
         </div>
       </section>
@@ -154,7 +157,7 @@
         <div class="sec-head"><h2 id="s-problems-i-worked-through-h">problems i worked through</h2></div>
         <div class="case-content">
           <article class="story"><h3>Deleting a panorama without breaking the tour</h3><dl><dt>Problem</dt><dd>Hotspots link panoramas together. Deleting one photo could leave other rooms pointing at nothing, and leave orphan files in storage.</dd><dt>What I did</dt><dd>Made hotspots the lowest layer. Deleting a panorama that others link to returns <code>409</code> with the list of those hotspots; with <code>cascade=true</code> it removes exactly those. Link rules (a room's panorama may only link to the hotel or the same room) are checked on the server and filtered in the editor. Files on R2 are deleted in one batch, after the database transaction commits.</dd><dt>Result</dt><dd>A tour cannot end up with broken links, and deleting a room or a hotel cleans up its files.</dd></dl></article>
-          <article class="story"><h3>Bookings that only the guest can open</h3><dl><dt>Problem</dt><dd>The first guest flow let anyone view and pay a booking with its sequential id and the guest's email in the URL.</dd><dt>What I did</dt><dd>Designed a new flow: guests confirm their email with a one-time code first and get a guest account with its own tokens. Every booking request checks ownership, and history comes from the token alone.</dd><dt>Status</dt><dd>The frontend is done and the API is written up as a spec. The backend side is still in progress.</dd></dl></article>
+          <article class="story"><h3>Bookings that only the guest can open</h3><dl><dt>Problem</dt><dd>The first guest flow let anyone view and pay a booking with its sequential id and the guest's email in the URL.</dd><dt>What I did</dt><dd>Designed a new flow: guests confirm their email with a one-time code first and get a guest account with its own tokens. Every booking request checks ownership, and history comes from the token alone.</dd><dt>Status</dt><dd>The frontend is done and the API is written up as a spec. On the backend, my teammate has added the one-time-code endpoints; the old lookup by id and email stays open until the rest of the spec is in.</dd></dl></article>
           <article class="story"><h3>One login, two back offices</h3><dl><dt>Problem</dt><dd>Platform admins and hotel owners need very different tools. Two login systems would double the work and the bugs.</dd><dt>What I did</dt><dd>One login route sends each account to <code>/admin</code> or <code>/partner</code> from the hotel it belongs to, and each portal redirects accounts in the wrong place. Menus and buttons follow permissions, so owners and staff need no separate code.</dd><dt>Result</dt><dd>Both portals reuse the same CRUD endpoints, scoped by permission and hotel checks in the service layer.</dd></dl></article>
           <article class="story"><h3>A payment amount counted twice</h3><dl><dt>Problem</dt><dd>For SePay bank transfers, multi-night stays were multiplied by the number of nights a second time, so the QR code asked for more than the booking cost.</dd><dt>What I did</dt><dd>Traced it to the payment request and the webhook matcher each recomputing the price. Both now read the amount stored on the booking, and the partner dashboard uses the same total.</dd><dt>Result</dt><dd>One source of truth for what a guest owes.</dd></dl></article>
         </div>
@@ -163,6 +166,8 @@
         <div class="sec-head"><h2 id="s-what-s-next-h">what's next</h2></div>
         <div class="case-content">
           <ul>
+            <li><strong>Walk through a tour like Street View</strong> (in progress): the viewer works out from where a hotspot sits whether it is a step along the floor or a door, draws walking arrows on the floor in 3D, shows the room's type and price with a booking button, and blends one scene into the next without a black frame.</li>
+            <li><strong>Show discounts to guests.</strong> The backend now applies a hotel's discounts and stores the discounted price on each booking; the guest-side tags are next.</li>
             <li><strong>Verify SePay webhooks</strong> with their HMAC signature, and store every bank transaction so a payment with a wrong reference can be matched by hand.</li>
             <li><strong>Live payment status</strong> while the QR code is on screen.</li>
             <li><strong>Finish the guest one-time-code flow</strong> on the backend.</li>

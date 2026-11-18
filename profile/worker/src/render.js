@@ -242,7 +242,7 @@ function head(active) {
   return (
     `<rect x=".75" y="0" width="${W - 1.5}" height="${HEAD_H}" class="f-win"/>` +
     mark(40, 16, 32) +
-    text(82, 29, 'Nhật Quang', { size: 15.5, bold: true }) +
+    text(82, 29, 'WENGG', { size: 15.5, bold: true }) +
     text(82, 46, `@${USER}`, { size: 11.5, cls: 'f-ink3', mono: true }) +
     menu +
     `<path d="M40 ${HEAD_H - 0.5}H${W - 40}" class="s-line" stroke-width="1"/>` +

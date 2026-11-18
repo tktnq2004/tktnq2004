@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SnapShot · Shop · Nhật Quang</title>
+  <meta name="description" content="A camera app for iOS and Android that turns a photo of a person into a pose guide on the viewfinder, with a composition assistant. Runs entirely on the phone.">
+  <meta property="og:title" content="SnapShot · Shop · Nhật Quang">
+  <meta property="og:description" content="A camera app for iOS and Android that turns a photo of a person into a pose guide on the viewfinder, with a composition assistant. Runs entirely on the phone.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og.png">
+  <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121a15" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M14 6l4 4"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 11h6M9 15h4"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 12v6M9 15l3 3 3-3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <a href="index.html">Nhật Quang</a>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="side"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </header>
+
+  <aside class="side" id="side" aria-label="Site">
+    <a class="side-name" href="index.html">Nhật Quang</a>
+    <nav aria-label="Main">
+      <div class="side-group">
+        <a href="shop.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>Shop</a>
+        <a href="blog.html"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg>Blog</a>
+        <a href="certifications.html"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg>Certifications</a>
+        <a href="contact.html"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Contact</a>
+      </div>
+      <div class="side-group">
+        <a href="index.html#partners">Partners</a>
+        <a href="index.html#maker">About the maker</a>
+        <a href="index.html#activity">Activity</a>
+        <a href="assets/Tran-Khuong-Trung-Nhat-Quang-CV.pdf" download><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>Download CV</a>
+      </div>
+    </nav>
+    <div class="side-foot">
+      <div class="theme" role="group" aria-label="Theme">
+        <button type="button" data-theme-set="system" aria-label="Use system theme"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg></button>
+        <button type="button" data-theme-set="light" aria-label="Light theme"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg></button>
+        <button type="button" data-theme-set="dark" aria-label="Dark theme"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      </div>
+      <p class="side-reach">For internships and fresher roles, reach me at</p>
+      <a class="side-mail" href="mailto:tktnq2004@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>tktnq2004@gmail.com</a>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="dots dots-tr" aria-hidden="true"></div>
+    <div class="col col-post">
+      <a class="crumb" href="shop.html"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>shop</a>
+      <header class="post-head">
+        <h1>SnapShot</h1>
+        <ul class="tags after-title"><li>Personal project</li><li>In progress</li></ul>
+        <p class="lead">A camera app for iOS and Android that turns a photo of a person into a pose guide on the viewfinder, so whoever holds the phone can match the pose. A composition assistant shows where to put the person in the frame. Everything runs on the phone.</p>
+        <div class="buy-actions">
+          <a class="btn btn-ink" href="contact.html">Ask me about it <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="https://github.com/tktnq2004/TakeASnap/tree/rebuild" rel="noopener">Repo <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
+        </div>
+      </header>
+      <dl class="case-facts"><div><dt>My role</dt><dd>Solo: product, design and the app</dd></div><div><dt>Platforms</dt><dd>iOS and Android, one codebase, Expo Go</dd></div><div><dt>Timeline</dt><dd>Oct 2025 – now, rebuilt from Nov 2026</dd></div><div><dt>Stack</dt><dd>Expo SDK 58, React Native 0.88, TypeScript, Skia, Reanimated, MediaPipe, SQLite</dd></div></dl>
+      <div class="sections">
+      <section class="sec" id="s-overview" aria-labelledby="s-overview-h">
+        <div class="sec-head"><h2 id="s-overview-h">overview</h2></div>
+        <div class="case-content">
+          <p class="big">You find a pose you like, the app cuts the person out of the photo and lays their outline over the camera. Your friend lines you up with it and shoots.</p>
+          <p>There is no server: the person is cut out on the phone, so photos never leave it. The first version (TakeASnap, 2025) sent every photo to a Python server on my home network. I rebuilt the app from scratch in November 2026 and renamed it SnapShot. It is a portfolio project, not on the app stores, tested on an iPhone 15 Pro Max and an Android emulator (Pixel 8a).</p>
+        </div>
+      </section>
+      <section class="sec" id="s-what-it-does" aria-labelledby="s-what-it-does-h">
+        <div class="sec-head"><h2 id="s-what-it-does-h">what it does</h2></div>
+        <div class="case-content">
+          <ul>
+            <li><strong>Shoot with a pose.</strong> A full camera (flash, timer, aspect ratio, grid, level, zoom from 0.5× to 5×, front and back, burst). The pose sits on the viewfinder; drag, pinch and rotate it to fit. Photos go to a SnapShot album without the overlay.</li>
+            <li><strong>Make a pose</strong> from one of 32 sample poses in 5 groups or from your own photo. In a group photo, tap the person you want while it is still processing.</li>
+            <li><strong>Edit a pose</strong> in four tabs: outline (thickness, colour, face lines), fill, background, and a brush to add or erase parts of the person with unlimited undo.</li>
+            <li><strong>Composition assistant</strong> (in progress). Pick a technique such as rule of thirds, centred, low angle or selfie: guide lines and a target appear on the viewfinder, the pose snaps to the thirds, the tilt sensor tells you to level or tilt the phone, and the photo gets a short review after the shot. 16 lesson cards explain each technique, with a button to try it.</li>
+          </ul>
+        </div>
+      </section>
+      <section class="sec" id="s-architecture" aria-labelledby="s-architecture-h">
+        <div class="sec-head"><h2 id="s-architecture-h">architecture</h2></div>
+        <div class="case-content">
+          <p>Expo Go cannot load custom native code, but it ships a WebView. The person is cut out by MediaPipe models (segmentation, face and 33 body landmarks) running in a hidden WebView, so one code path works on both iOS and Android. The models, about 42 MB at pinned versions, are downloaded once and then work offline.</p>
+          <p>The outline is drawn from vector contours with Skia, so thickness and colour change on the next frame. Gestures run on the UI thread with Gesture Handler and Reanimated; nothing calls <code>setState</code> while a finger is moving. Segmentation sits behind one <code>Segmenter</code> interface, so a later build can swap in Apple Vision or ML Kit without touching the rest.</p>
+          <figure class="figure">
+          <div class="arch" role="img" aria-label="Screens call the engine, which sends the photo to MediaPipe models in a hidden WebView and stores poses on the device in SQLite and files.">
+            <div class="arch-col"><span class="arch-label">Screens</span><div class="node"><b>Camera</b><span>pose overlay, assistant</span></div><div class="node"><b>Library, editor</b><span>make and edit poses</span></div></div>
+            <div class="arch-col"><span class="arch-label">Engine</span><div class="node key"><b>Segmenter</b><span>one interface</span></div><div class="node"><b>Contours, brush</b><span>vector outline, mask edits</span></div></div>
+            <div class="arch-col"><span class="arch-label">Hidden WebView</span><div class="node key"><b>MediaPipe</b><span>person, face, 33 joints</span></div><div class="node"><b>Model cache</b><span>downloaded once</span></div></div>
+            <div class="arch-col"><span class="arch-label">On the phone</span><div class="node"><b>SQLite · files</b><span>poses and images</span></div><div class="node"><b>Photo album</b><span>finished shots</span></div></div>
+          </div>
+            <figcaption>No server: from the photo to the saved pose, everything stays on the phone.</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="sec" id="s-problems-i-worked-through" aria-labelledby="s-problems-i-worked-through-h">
+        <div class="sec-head"><h2 id="s-problems-i-worked-through-h">problems i worked through</h2></div>
+        <div class="case-content">
+          <article class="story"><h3>Cutting out a person without a server</h3><dl><dt>Problem</dt><dd>The first version sent each photo to a Python server at a hard-coded address on my home network. Away from home, making a pose failed, and even the sample poses were cut out again every time they were picked.</dd><dt>What I did</dt><dd>Moved segmentation onto the phone: MediaPipe models in a hidden WebView, downloaded once and cached with a manifest. The 32 sample poses are cut out ahead of time, so they need no download at all.</dd><dt>Result</dt><dd>No server to run or pay for, and photos never leave the phone. A full test in airplane mode is still on my list.</dd></dl></article>
+          <article class="story"><h3>Gestures that fought each other</h3><dl><dt>Problem</dt><dd>In the first version, every new pinch reset the pose to its original size, every rotation snapped back to 0° and every drag jumped back to the centre, because the gesture code read stale values. Zooming the camera re-rendered the whole screen on every frame.</dd><dt>What I did</dt><dd>Rewrote the gestures with Gesture Handler and Reanimated shared values on the UI thread, measured them on real devices and fixed what the numbers showed: a 0.5 s delay before dragging, zoom that moved in steps, and, on Android, a JavaScript thread that fell to 15–25 fps while zooming. Zoom updates are now capped at about 30 per second.</dd><dt>Result</dt><dd>Dragging, pinching and rotating the pose holds 60 fps on the iPhone and 58–60 fps on Android.</dd></dl></article>
+          <article class="story"><h3>A photo that matches the viewfinder</h3><dl><dt>Problem</dt><dd>The first version cropped every photo to a fixed 15–75% of the preview height, so the saved photo did not match what you framed. Its "auto flash" switched the torch on and off from a random number.</dd><dt>What I did</dt><dd>Crop from the real size of the camera image instead of a share of the screen, and use the camera's own auto flash.</dd><dt>Result</dt><dd>What you frame with the pose is what ends up in the album.</dd></dl></article>
+          <article class="story"><h3>Advice you can explain</h3><dl><dt>Problem</dt><dd>A composition assistant is easy to fake with "the AI likes this photo". I have no GPU budget, and I wanted every hint to have a reason.</dd><dt>What I did</dt><dd>The assistant uses what the app already knows: where the person and the top of their head are, where the eyes and the 33 joints are, and how the phone is tilted. Rules from photography, written in TypeScript, turn that into one short hint at a time, such as too much space above the head or a knee cut by the frame.</dd><dt>Status</dt><dd>Technique guides, sensor hints, the review after the shot and the 16 lesson cards are in. Hints while you frame need a stream of camera frames that Expo Go does not provide, so I will measure speed, battery and heat first and decide from the numbers.</dd></dl></article>
+        </div>
+      </section>
+      <section class="sec" id="s-what-s-next" aria-labelledby="s-what-s-next-h">
+        <div class="sec-head"><h2 id="s-what-s-next-h">what's next</h2></div>
+        <div class="case-content">
+          <ul>
+            <li><strong>Finish the composition assistant</strong>, including the decision on hints while framing.</li>
+            <li><strong>Find the horizon and leading lines</strong> in the photo, kept only if they are found in at least 80% and 70% of a test set.</li>
+            <li><strong>Pick a technique automatically</strong> with a small model I train myself, shipped only if it beats choosing by hand.</li>
+            <li><strong>A demo video</strong>, so the app can be seen without installing it.</li>
+          </ul>
+        </div>
+      </section>
+      </div>
+      <section class="post-skills" aria-labelledby="h-used">
+        <div class="sec-head"><h2 id="h-used" class="plain">built with</h2><a class="sec-more" href="blog.html">blog <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        <ul class="chips"><li><a href="blog.html#languages">TypeScript</a></li><li><a href="blog.html#mobile">React Native</a></li><li><a href="blog.html#mobile">Expo</a></li><li><a href="blog.html#mobile">Reanimated</a></li><li><a href="blog.html#mobile">Skia</a></li><li><a href="blog.html#integrations">MediaPipe</a></li><li><a href="blog.html#databases">SQLite</a></li><li><a href="blog.html#tools">Git &amp; GitHub</a></li></ul>
+      </section>
+      <footer class="foot">
+        <b>Quang</b>
+        <span>© 2026 · Ho Chi Minh City</span>
+        <a href="#main">back to top <svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></a>
+      </footer>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
